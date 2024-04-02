@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NetComic</string>
+    <string name="ng_nh_p">Đăng Nhập</string>
+    <string name="ng_nh_s">Đăng Ký</string>
+</resources>
