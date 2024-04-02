@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "54625875538",
+    "project_id": "netcomic-568f1",
+    "storage_bucket": "netcomic-568f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54625875538:android:4314dc16828a75485a118b",
+        "android_client_info": {
+          "package_name": "com.example.netcomic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiB3KqeIu9GcfqR-cImGqrwsqmZfj5_Ks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
