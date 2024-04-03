@@ -3219,8 +3219,10 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btn
 id btn_login
 id btn_logingg
+id btn_logout
 id btn_register
 id btn_return
 id buttonPanel
@@ -3480,6 +3482,8 @@ id pin
 id position
 id postLayout
 id pressed
+id profile
+id profilemain
 id progress_circular
 id progress_horizontal
 id radio
@@ -3741,6 +3745,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_log_out
 layout activity_login
 layout activity_main
 layout activity_register

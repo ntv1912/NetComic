@@ -78,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
                     startActivity(i);
                 }else{
                     Toast.makeText(RegisterActivity.this, "That Bai", Toast.LENGTH_SHORT).show();
-                    return ;
+
                 }
             }
         });

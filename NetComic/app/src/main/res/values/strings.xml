@@ -2,5 +2,5 @@
     <string name="app_name">NetComic</string>
     <string name="ng_nh_p">Đăng Nhập</string>
     <string name="ng_nh_s">Đăng Ký</string>
-    <string name="default_web_client_id" >54625875538-01gh114poj132uavorf8a7tjs4psm6pf.apps.googleusercontent.com</string>
+    <string name="default_web_client_id">54625875538-01gh114poj132uavorf8a7tjs4psm6pf.apps.googleusercontent.com</string>
 </resources>

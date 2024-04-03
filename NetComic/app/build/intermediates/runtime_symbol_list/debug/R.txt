@@ -3218,8 +3218,10 @@ int id browser_actions_menu_item_icon 0x7f080065
 int id browser_actions_menu_item_text 0x7f080066
 int id browser_actions_menu_items 0x7f080067
 int id browser_actions_menu_view 0x7f080068
+int id btn 0x7f080200
 int id btn_login 0x7f080069
 int id btn_logingg 0x7f08006a
+int id btn_logout 0x7f080201
 int id btn_register 0x7f08006b
 int id btn_return 0x7f08006c
 int id buttonPanel 0x7f08006d
@@ -3479,6 +3481,8 @@ int id pin 0x7f08016a
 int id position 0x7f08016b
 int id postLayout 0x7f08016c
 int id pressed 0x7f08016d
+int id profile 0x7f080202
+int id profilemain 0x7f080204
 int id progress_circular 0x7f08016e
 int id progress_horizontal 0x7f08016f
 int id radio 0x7f080170
@@ -3740,6 +3744,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0b0018
 int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
+int layout activity_log_out 0x7f0b006e
 int layout activity_login 0x7f0b001c
 int layout activity_main 0x7f0b001d
 int layout activity_register 0x7f0b001e

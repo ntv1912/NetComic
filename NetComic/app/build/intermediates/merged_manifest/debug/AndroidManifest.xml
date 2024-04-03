@@ -32,6 +32,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.NetComic" >
         <activity
+            android:name="com.example.netcomic.LogOutActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.netcomic.RegisterActivity"
             android:exported="false" />
         <activity
