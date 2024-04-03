@@ -4,7 +4,7 @@
             "outputFile": "com.example.netcomic.app-mergeDebugResources-34:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ntvu2\\.gradle\\caches\\transforms-3\\a2263a9a989095dd4c420b867e562b01\\transformed\\browser-1.4.0\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\ntvu2\\.gradle\\caches\\transforms-3\\6c7971b0b23792212c1711d2a7266e56\\transformed\\browser-1.4.0\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ntvu2\\.gradle\\caches\\transforms-3\\74b14a0962440d6438ca68ae7c367869\\transformed\\core-1.9.0\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\ntvu2\\.gradle\\caches\\transforms-3\\862bc1cdce1c01a860ed8e456f464169\\transformed\\core-1.9.0\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ntvu2\\.gradle\\caches\\transforms-3\\85e11f1c752512662a657ee886cb3612\\transformed\\appcompat-1.6.1\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\ntvu2\\.gradle\\caches\\transforms-3\\1862e00d1ecf26ee57c1a966a6d7e274\\transformed\\appcompat-1.6.1\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
