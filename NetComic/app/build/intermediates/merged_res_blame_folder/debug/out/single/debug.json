@@ -12,6 +12,10 @@
         "source": "com.example.netcomic.app-main-38:/layout/activity_register.xml"
     },
     {
+        "merged": "com.example.netcomic.app-merged_res-36:/drawable_netcomic.png.flat",
+        "source": "com.example.netcomic.app-main-38:/drawable/netcomic.png"
+    },
+    {
         "merged": "com.example.netcomic.app-merged_res-36:/layout_activity_login.xml.flat",
         "source": "com.example.netcomic.app-main-38:/layout/activity_login.xml"
     },
@@ -58,6 +62,10 @@
     {
         "merged": "com.example.netcomic.app-merged_res-36:/mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "com.example.netcomic.app-main-38:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.netcomic.app-merged_res-36:/layout_activity_splash.xml.flat",
+        "source": "com.example.netcomic.app-main-38:/layout/activity_splash.xml"
     },
     {
         "merged": "com.example.netcomic.app-merged_res-36:/xml_data_extraction_rules.xml.flat",

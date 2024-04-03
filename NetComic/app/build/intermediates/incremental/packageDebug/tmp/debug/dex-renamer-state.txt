@@ -1,9 +1,9 @@
-#Wed Apr 03 17:03:31 ICT 2024
-base.0=C\:\\Users\\ntvu2\\AndroidStudioProjects\\NetComic\\NetComic\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\ntvu2\\AndroidStudioProjects\\NetComic\\NetComic\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=C\:\\Users\\ntvu2\\AndroidStudioProjects\\NetComic\\NetComic\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.3=C\:\\Users\\ntvu2\\AndroidStudioProjects\\NetComic\\NetComic\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
-base.4=C\:\\Users\\ntvu2\\AndroidStudioProjects\\NetComic\\NetComic\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+#Wed Apr 03 23:16:37 ICT 2024
+base.0=C\:\\Users\\ntvu2\\Downloads\\NetComic\\NetComic\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\ntvu2\\Downloads\\NetComic\\NetComic\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=C\:\\Users\\ntvu2\\Downloads\\NetComic\\NetComic\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.3=C\:\\Users\\ntvu2\\Downloads\\NetComic\\NetComic\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
+base.4=C\:\\Users\\ntvu2\\Downloads\\NetComic\\NetComic\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=1/classes.dex

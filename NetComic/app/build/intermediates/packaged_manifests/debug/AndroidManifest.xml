@@ -32,10 +32,10 @@
         android:testOnly="true"
         android:theme="@style/Theme.NetComic" >
         <activity
-            android:name="com.example.netcomic.RegisterActivity"
+            android:name="com.example.netcomic.MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.netcomic.LoginActivity"
+            android:name="com.example.netcomic.SplashActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,15 +44,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.netcomic.MainActivity"
-            android:exported="true" >
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+            android:name="com.example.netcomic.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.netcomic.LoginActivity"
+            android:exported="false" >
         </activity>
         <activity
             android:name="com.google.firebase.auth.internal.GenericIdpActivity"

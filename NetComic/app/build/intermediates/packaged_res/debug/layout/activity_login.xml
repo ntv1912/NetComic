@@ -6,43 +6,55 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".LoginActivity">
+
     <TextView
-        android:layout_marginTop="90dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="40sp"
+        android:layout_marginTop="90dp"
         android:text="@string/ng_nh_p"
-        android:textStyle="bold"
-        />
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/account_circle"
-        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:gravity="center">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/account_circle" />
+
+        <ProgressBar
+            android:id="@+id/pro_login"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+
 
     <EditText
         android:id="@+id/user"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:hint="Tài Khoản"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        />
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:hint="Tài Khoản"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/pass"
-        android:layout_marginTop="20dp"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:hint="Mật Khẩu"
-        android:inputType="textPassword"
-        />
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btn_login"
@@ -58,8 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Đăng Ký"
-        />
+        android:text="Đăng Ký" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,12 +78,14 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="Hoặc" />
+
     <Button
         android:id="@+id/btn_logingg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Đăng Nhập Bằng Google"
-        />
+        android:text="Đăng Nhập Bằng Google" />
+
+
 </LinearLayout>
