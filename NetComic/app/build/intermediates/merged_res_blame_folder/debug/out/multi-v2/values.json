@@ -353,9 +353,9 @@
                     "from": {
                         "startLines": "1,4,2,3",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "17,156,64,111",
-                        "endColumns": "45,122,45,43",
-                        "endOffsets": "58,274,105,150"
+                        "startOffsets": "16,152,62,108",
+                        "endColumns": "45,121,45,43",
+                        "endOffsets": "57,269,103,147"
                     },
                     "to": {
                         "startLines": "1981,2012,2137,2138",

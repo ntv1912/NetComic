@@ -3099,6 +3099,7 @@ drawable mtrl_switch_track
 drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable netcomic
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -3347,6 +3348,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id immediateStop
 id included
 id indeterminate
@@ -3369,6 +3371,7 @@ id linear
 id listMode
 id list_item
 id m3_side_sheet
+id main
 id marquee
 id masked
 id match_constraint
@@ -3482,6 +3485,7 @@ id pin
 id position
 id postLayout
 id pressed
+id pro_login
 id profile
 id profilemain
 id progress_circular
@@ -3580,6 +3584,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3749,6 +3754,7 @@ layout activity_log_out
 layout activity_login
 layout activity_main
 layout activity_register
+layout activity_splash
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog

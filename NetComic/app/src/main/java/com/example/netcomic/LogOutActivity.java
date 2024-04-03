@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LogOutActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+
     GoogleSignInClient mGoogleSignIn;
     Button btnLogOut;
     @Override

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:2:1-45:12
+ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:2:1-43:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\ntvu2\.gradle\caches\transforms-3\d465cb73daca51564ea7fa0a76321e70\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\ntvu2\.gradle\caches\transforms-3\333016d9ab36f457ad39c2db7bc55284\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\ntvu2\.gradle\caches\transforms-3\891b997f6a6905d16f3b7546ce1c06da\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
@@ -83,8 +83,8 @@ MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\ntvu2\.grad
 	android:name
 		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:7:5-43:19
-INJECTED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:7:5-43:19
+ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:7:5-41:19
+INJECTED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:7:5-41:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\ntvu2\.gradle\caches\transforms-3\d465cb73daca51564ea7fa0a76321e70\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\ntvu2\.gradle\caches\transforms-3\d465cb73daca51564ea7fa0a76321e70\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\ntvu2\.gradle\caches\transforms-3\333016d9ab36f457ad39c2db7bc55284\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -147,40 +147,46 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\ntvu2\.gradle\cach
 		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:15:9-46
 	android:dataExtractionRules
 		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:9:9-65
-activity#com.example.netcomic.LogOutActivity
-ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:17:9-19:40
+activity#com.example.netcomic.MainActivity
+ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:17:9-19:39
 	android:exported
 		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:19:13-37
 	android:name
-		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:18:13-43
-activity#com.example.netcomic.RegisterActivity
-ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:20:9-22:40
+		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:18:13-41
+activity#com.example.netcomic.SplashActivity
+ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:20:9-28:20
 	android:exported
-		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:22:13-37
+		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:22:13-36
 	android:name
-		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:21:13-45
-activity#com.example.netcomic.LoginActivity
-ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:23:9-31:20
-	android:exported
-		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:25:13-36
-	android:name
-		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:24:13-42
+		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:21:13-43
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:26:13-30:29
+ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:23:13-27:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:27:17-69
+ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:24:17-69
 	android:name
-		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:27:25-66
+		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:24:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:29:17-77
+ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:26:17-77
 	android:name
-		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:29:27-74
-activity#com.example.netcomic.MainActivity
-ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:32:9-42:20
+		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:26:27-74
+activity#com.example.netcomic.RegisterActivity
+ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:29:9-31:40
 	android:exported
-		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:34:13-36
+		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:31:13-37
 	android:name
-		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:33:13-41
+		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:30:13-45
+activity#com.example.netcomic.LoginActivity
+ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:32:9-35:20
+	android:exported
+		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:33:13-42
+activity#com.example.netcomic.LogOutActivity
+ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:36:9-39:20
+	android:exported
+		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:38:13-37
+	android:name
+		ADDED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml:37:13-43
 uses-sdk
 INJECTED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\ntvu2\AndroidStudioProjects\NetComic\NetComic\app\src\main\AndroidManifest.xml
