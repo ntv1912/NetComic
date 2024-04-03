@@ -2,10 +2,14 @@ package com.example.netcomic;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText eUser, ePass;
     private Button btnLogin, btnRegister, btnLogingg;
     int RC_SIGN_IN = 20;
-
+    ProgressBar pro_login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btn_login);
         btnRegister = findViewById(R.id.btn_register);
         btnLogingg = findViewById(R.id.btn_logingg);
+        pro_login = findViewById(R.id.pro_login);
 
         GoogleSignInOptions gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -50,13 +55,26 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this,gso);
 
-
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pro_login.setVisibility(View.VISIBLE);
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        pro_login.setVisibility(View.INVISIBLE);
+                    }
+                },2000);
                 login();
             }
         });
+
+//        btnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                login();
+//            }
+//        });
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     protected void onStart() {
