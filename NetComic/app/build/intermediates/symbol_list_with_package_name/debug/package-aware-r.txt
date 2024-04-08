@@ -3033,6 +3033,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable error_image
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
@@ -3121,6 +3122,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable placeholder_image
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3260,6 +3262,9 @@ id clip_vertical
 id clockwise
 id closest
 id collapseActionView
+id comic_genre
+id comic_image
+id comic_title
 id compress
 id confirm_button
 id constraint
@@ -3510,6 +3515,9 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recycler_view_horizontal
+id recycler_view_search
+id recycler_view_vertical
 id remove_profile
 id repass
 id report_drawn
@@ -3540,6 +3548,7 @@ id search_go_btn
 id search_mag_icon
 id search_plate
 id search_src_text
+id search_view
 id search_voice_btn
 id select_dialog_listview
 id selected
@@ -3605,6 +3614,8 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textView2
+id textView3
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3798,6 +3809,9 @@ layout fragment_book_store
 layout fragment_home
 layout fragment_search
 layout fragment_setting
+layout item_comic
+layout item_comic_h
+layout item_comic_v
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
