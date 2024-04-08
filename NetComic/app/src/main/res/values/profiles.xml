@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="taiKhoan">Tài khoản</string>
+    <string name="thayDoiMatKhau">Thay đổi mật khẩu</string>
+    <string name="lienKetEmail">Email liên kết</string>
+    <string name="xoaTaiKhoan">Xóa tài khoản</string>
+
+</resources>

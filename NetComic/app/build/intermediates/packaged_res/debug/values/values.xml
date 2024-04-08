@@ -9,9 +9,14 @@
     <string name="google_app_id" translatable="false">1:54625875538:android:4314dc16828a75485a118b</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAiB3KqeIu9GcfqR-cImGqrwsqmZfj5_Ks</string>
     <string name="google_storage_bucket" translatable="false">netcomic-568f1.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lienKetEmail">Email liên kết</string>
     <string name="ng_nh_p">Đăng Nhập</string>
     <string name="ng_nh_s">Đăng Ký</string>
     <string name="project_id" translatable="false">netcomic-568f1</string>
+    <string name="taiKhoan">Tài khoản</string>
+    <string name="thayDoiMatKhau">Thay đổi mật khẩu</string>
+    <string name="xoaTaiKhoan">Xóa tài khoản</string>
     <style name="Base.Theme.NetComic" parent="Theme.Material3.DayNight.NoActionBar">
         
         

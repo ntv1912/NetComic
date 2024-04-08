@@ -1377,6 +1377,7 @@ color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
+color color_nav_menu
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default
 color common_google_signin_btn_text_dark_disabled
@@ -2992,6 +2993,14 @@ drawable abc_vector_test
 drawable account_circle
 drawable avd_hide_password
 drawable avd_show_password
+drawable baseline_account_box_24
+drawable baseline_arrow_back_24
+drawable baseline_home_24
+drawable baseline_logout_24
+drawable baseline_menu_book_24
+drawable baseline_navigate_next_24
+drawable baseline_search_24
+drawable baseline_settings_24
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3210,7 +3219,9 @@ id beginOnFirstDraw
 id beginning
 id bestChoice
 id blocking
+id book
 id bottom
+id bottomNavigationView
 id bounce
 id bounceBoth
 id bounceEnd
@@ -3220,7 +3231,6 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
-id btn
 id btn_login
 id btn_logingg
 id btn_logout
@@ -3239,6 +3249,7 @@ id center_vertical
 id chain
 id chain2
 id chains
+id change_pass
 id checkbox
 id checked
 id chronometer
@@ -3325,6 +3336,7 @@ id flip
 id floating
 id forever
 id fragment_container_view_tag
+id frame_layout
 id frost
 id fullscreen_header
 id ghost_view
@@ -3370,6 +3382,7 @@ id line3
 id linear
 id listMode
 id list_item
+id logout_icon
 id m3_side_sheet
 id main
 id marquee
@@ -3487,12 +3500,17 @@ id postLayout
 id pressed
 id pro_login
 id profile
-id profilemain
+id profile_email
+id profile_img
+id profile_info_btn
+id profile_name
+id profile_txt
 id progress_circular
 id progress_horizontal
 id radio
 id ratio
 id rectangles
+id remove_profile
 id repass
 id report_drawn
 id reverseSawtooth
@@ -3512,6 +3530,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id search
 id search_badge
 id search_bar
 id search_button
@@ -3525,6 +3544,7 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
+id setting
 id sharedValueSet
 id sharedValueUnset
 id shortcut
@@ -3753,6 +3773,7 @@ layout abc_tooltip
 layout activity_log_out
 layout activity_login
 layout activity_main
+layout activity_profile
 layout activity_register
 layout activity_splash
 layout browser_actions_context_menu_page
@@ -3773,6 +3794,10 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_book_store
+layout fragment_home
+layout fragment_search
+layout fragment_setting
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3834,6 +3859,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
@@ -3911,9 +3937,11 @@ string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
+string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string lienKetEmail
 string m3_exceed_max_badge_text_suffix
 string m3_ref_typeface_brand_medium
 string m3_ref_typeface_brand_regular
@@ -4029,6 +4057,9 @@ string searchview_navigation_content_description
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string status_bar_notification_info_overflow
+string taiKhoan
+string thayDoiMatKhau
+string xoaTaiKhoan
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

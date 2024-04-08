@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragment"
+    android:background="#FFFFFF">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="Cá Nhân"
+        android:textSize="40dp" />
+
+    <ImageView
+        android:id="@+id/logout_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/baseline_logout_24"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp" />
+    <ImageView
+        android:id="@+id/profile_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/baseline_account_box_24"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+
+        />
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="vu nguyen"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="120dp"
+        />
+    <TextView
+        android:id="@+id/profile_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="email"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="150dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:orientation="vertical"
+        >
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/profile_info_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tài khoản và Bảo mật"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:drawableStart="@drawable/account_circle"
+            android:drawableEnd="@drawable/baseline_navigate_next_24"
+            android:padding="15dp"
+            />
+    </LinearLayout>
+
+</FrameLayout>

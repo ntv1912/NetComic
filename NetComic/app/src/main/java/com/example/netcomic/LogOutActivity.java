@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class LogOutActivity extends AppCompatActivity {
 
     GoogleSignInClient mGoogleSignIn;
-    Button btnLogOut;
+//    Button btnLogOut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +34,8 @@ public class LogOutActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         mGoogleSignIn = GoogleSignIn.getClient(this,gso);
-        setContentView(R.layout.activity_log_out);
-        btnLogOut= findViewById(R.id.btn_logout);
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mGoogleSignIn != null) {
+//        setContentView(R.layout.activity_log_out);
+        if (mGoogleSignIn != null) {
                     mGoogleSignIn.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -71,6 +67,43 @@ public class LogOutActivity extends AppCompatActivity {
                     Toast.makeText(LogOutActivity.this, "Không thể đăng xuất", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
-    }
-}
+        }
+//        btnLogOut= findViewById(R.id.btn_logout);
+//        btnLogOut.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (mGoogleSignIn != null) {
+//                    mGoogleSignIn.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task) {
+//                            if (task.isSuccessful()) {
+//                                // Đăng xuất thành công từ GoogleSignInClient
+//                                Toast.makeText(LogOutActivity.this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
+////                                Log.d(TAG, "Đăng xuất thành công");
+//
+//                                // Đăng xuất từ Firebase Authentication
+//                                FirebaseAuth.getInstance().signOut();
+//
+//                                Intent intent = new Intent(LogOutActivity.this, LoginActivity.class);
+//                                startActivity(intent);
+//                                finish();
+//                            } else {
+//                                // Xử lý khi đăng xuất từ GoogleSignInClient không thành công
+//                                Toast.makeText(LogOutActivity.this, "Đăng xuất thất bại", Toast.LENGTH_SHORT).show();
+////                                Log.w(TAG, "Đăng xuất thất bại", task.getException());
+//
+//                                // Chuyển về MainActivity
+//                                Intent intent = new Intent(LogOutActivity.this, MainActivity.class);
+//                                startActivity(intent);
+//                                finish();
+//                            }
+//                        }
+//                    });
+//                } else {
+//                    // Nếu mGoogleSignIn là null, không có gì để đăng xuất
+//                    Toast.makeText(LogOutActivity.this, "Không thể đăng xuất", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//    }
+//}
