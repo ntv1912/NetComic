@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,7 +36,9 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private EditText eUser, ePass;
-    private Button btnLogin, btnRegister, btnLogingg;
+    private Button btnLogin;
+    private TextView btnRegister;
+    private ImageButton btnLogingg;
     int RC_SIGN_IN = 20;
     ProgressBar pro_login;
     @Override
