@@ -7,55 +7,73 @@
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
+    <Button
+        android:id="@+id/btn_return"
+        android:background="@drawable/custom_button"
+        android:drawableRight="@drawable/baseline_arrow_back_24"
+        android:drawableTint="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="right"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:text="Quay Lại"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:text="Đăng Ký"
-        android:textSize="40sp" />
+        android:text="Đăng ký tài khoản"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/user"
+        android:background="@drawable/custom_edittext"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
-        android:hint="Tài Khoản"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        />
+        android:drawableLeft="@drawable/baseline_email_24"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:hint="Email"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:inputType="text" />
+
     <EditText
         android:id="@+id/pass"
+        android:background="@drawable/custom_edittext"
         android:layout_marginTop="20dp"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:hint="Mật Khẩu"
-        android:inputType="textPassword"
-        />
+        android:drawableLeft="@drawable/lock_svgrepo_com"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:hint="Mật khẩu"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:inputType="textPassword" />
+
     <EditText
         android:id="@+id/repass"
+        android:background="@drawable/custom_edittext"
         android:layout_marginTop="20dp"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:hint="Nhập Lại Mật Khẩu"
-        android:inputType="textPassword"
-        />
+        android:drawableLeft="@drawable/lock_svgrepo_com"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:hint="Nhập lại mật khẩu"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:layout_width="400dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:text="Đăng Ký" />
+        android:layout_marginTop="40dp"
+        android:text="Đăng ký" />
 
-    <Button
-        android:id="@+id/btn_return"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="Quay Lại" />
+
 </LinearLayout>
