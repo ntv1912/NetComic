@@ -142,8 +142,11 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Xử lý sự kiện khi người dùng nhấn vào nút thay đổi mật khẩu
+                String currentPass = "";
+                showPassDialog(currentPass);
             }
         });
+
         pEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -327,5 +330,59 @@ public class ProfileActivity extends AppCompatActivity {
                         Log.e(TAG, "Error uploading image to Firebase Storage", e);
                     });
         }
+    }
+
+    private void showPassDialog(String defaultValue) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+        builder.setTitle("Nhập mật khẩu mới");
+
+        final EditText input = new EditText(ProfileActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        // Thiết lập nút "OK" trong AlertDialog
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Lấy mật khẩu mới và mật khẩu xác nhận từ trường nhập dữ liệu
+                String newPass = input.getText().toString();
+
+                // Kiểm tra xem mật khẩu mới và mật khẩu xác nhận có trùng khớp không
+                if(!TextUtils.isEmpty(newPass)){
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if (user != null) {
+                        user.updatePassword(newPass)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            // Cập nhật mật khẩu thành công
+                                            Toast.makeText(ProfileActivity.this, "Mật khẩu đã được thay đổi.", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            // Xảy ra lỗi khi cập nhật mật khẩu
+                                            Toast.makeText(ProfileActivity.this, "Có lỗi xảy ra khi thay đổi mật khẩu.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                    }
+                }else {
+                    // Hiển thị thông báo nếu tên mới rỗng
+                    Toast.makeText(ProfileActivity.this, "Mật khẩu không được để trống.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // Thiết lập nút "Hủy" trong AlertDialog
+        builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Đóng dialog nếu người dùng bấm nút "Hủy"
+                dialog.cancel();
+            }
+        });
+
+        // Hiển thị AlertDialog
+        builder.show();
     }
 }
