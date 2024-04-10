@@ -27,6 +27,7 @@
 
 
     <TextView
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -35,9 +36,11 @@
 
     <EditText
         android:id="@+id/user"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
         android:background="@drawable/custom_edittext"
         android:padding="10dp"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
@@ -48,9 +51,11 @@
 
     <EditText
         android:id="@+id/pass"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
         android:background="@drawable/custom_edittext"
         android:padding="10dp"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
@@ -61,22 +66,27 @@
 
     <Button
         android:id="@+id/btn_login"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
         android:background="@drawable/custom_button"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:text="Đăng Nhập" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/horizontal_line_svgrepo_com"
         android:drawableRight="@drawable/horizontal_line_svgrepo_com"
         android:drawablePadding="10dp"
-        android:text="Hoặc"/>
+        android:text="Hoặc"
+        android:textAlignment="center"/>
 
     <ImageButton
         android:id="@+id/btn_logingg"

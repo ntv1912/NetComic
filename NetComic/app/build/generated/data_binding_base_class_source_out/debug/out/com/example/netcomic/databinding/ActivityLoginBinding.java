@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -25,10 +27,10 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final Button btnLogin;
 
   @NonNull
-  public final Button btnLogingg;
+  public final ImageButton btnLogingg;
 
   @NonNull
-  public final Button btnRegister;
+  public final TextView btnRegister;
 
   @NonNull
   public final EditText pass;
@@ -40,7 +42,7 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final EditText user;
 
   private ActivityLoginBinding(@NonNull LinearLayout rootView, @NonNull Button btnLogin,
-      @NonNull Button btnLogingg, @NonNull Button btnRegister, @NonNull EditText pass,
+      @NonNull ImageButton btnLogingg, @NonNull TextView btnRegister, @NonNull EditText pass,
       @NonNull ProgressBar proLogin, @NonNull EditText user) {
     this.rootView = rootView;
     this.btnLogin = btnLogin;
@@ -85,13 +87,13 @@ public final class ActivityLoginBinding implements ViewBinding {
       }
 
       id = R.id.btn_logingg;
-      Button btnLogingg = ViewBindings.findChildViewById(rootView, id);
+      ImageButton btnLogingg = ViewBindings.findChildViewById(rootView, id);
       if (btnLogingg == null) {
         break missingId;
       }
 
       id = R.id.btn_register;
-      Button btnRegister = ViewBindings.findChildViewById(rootView, id);
+      TextView btnRegister = ViewBindings.findChildViewById(rootView, id);
       if (btnRegister == null) {
         break missingId;
       }

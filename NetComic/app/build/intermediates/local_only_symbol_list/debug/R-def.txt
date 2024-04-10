@@ -6,6 +6,7 @@ color white
 drawable account_circle
 drawable baseline_account_box_24
 drawable baseline_arrow_back_24
+drawable baseline_email_24
 drawable baseline_format_list_bulleted_24
 drawable baseline_home_24
 drawable baseline_logout_24
@@ -14,9 +15,13 @@ drawable baseline_navigate_before_24
 drawable baseline_navigate_next_24
 drawable baseline_search_24
 drawable baseline_settings_24
+drawable custom_button
+drawable custom_edittext
 drawable error_image
+drawable horizontal_line_svgrepo_com
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable lock_svgrepo_com
 drawable netcomic
 drawable placeholder_image
 id back_button

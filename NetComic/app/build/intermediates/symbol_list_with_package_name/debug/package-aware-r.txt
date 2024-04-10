@@ -2995,6 +2995,7 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable baseline_account_box_24
 drawable baseline_arrow_back_24
+drawable baseline_email_24
 drawable baseline_format_list_bulleted_24
 drawable baseline_home_24
 drawable baseline_logout_24
@@ -3030,6 +3031,8 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable custom_button
+drawable custom_edittext
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
@@ -3038,6 +3041,7 @@ drawable design_snackbar_background
 drawable error_image
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable horizontal_line_svgrepo_com
 drawable ic_arrow_back_black_24
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
@@ -3052,6 +3056,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
+drawable lock_svgrepo_com
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle

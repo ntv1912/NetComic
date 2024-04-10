@@ -2994,6 +2994,7 @@ int drawable avd_hide_password 0x7f070079
 int drawable avd_show_password 0x7f07007a
 int drawable baseline_account_box_24 0x7f0700f8
 int drawable baseline_arrow_back_24 0x7f0700fd
+int drawable baseline_email_24 0x7f070103
 int drawable baseline_format_list_bulleted_24 0x7f070101
 int drawable baseline_home_24 0x7f07007b
 int drawable baseline_logout_24 0x7f0700f9
@@ -3029,6 +3030,8 @@ int drawable common_google_signin_btn_text_light 0x7f070094
 int drawable common_google_signin_btn_text_light_focused 0x7f070095
 int drawable common_google_signin_btn_text_light_normal 0x7f070096
 int drawable common_google_signin_btn_text_light_normal_background 0x7f070097
+int drawable custom_button 0x7f070104
+int drawable custom_edittext 0x7f070105
 int drawable design_fab_background 0x7f070098
 int drawable design_ic_visibility 0x7f070099
 int drawable design_ic_visibility_off 0x7f07009a
@@ -3037,6 +3040,7 @@ int drawable design_snackbar_background 0x7f07009c
 int drawable error_image 0x7f0700fe
 int drawable googleg_disabled_color_18 0x7f07009d
 int drawable googleg_standard_color_18 0x7f07009e
+int drawable horizontal_line_svgrepo_com 0x7f070106
 int drawable ic_arrow_back_black_24 0x7f07009f
 int drawable ic_clear_black_24 0x7f0700a0
 int drawable ic_clock_black_24dp 0x7f0700a1
@@ -3051,6 +3055,7 @@ int drawable ic_mtrl_chip_checked_black 0x7f0700a9
 int drawable ic_mtrl_chip_checked_circle 0x7f0700aa
 int drawable ic_mtrl_chip_close_circle 0x7f0700ab
 int drawable ic_search_black_24 0x7f0700ac
+int drawable lock_svgrepo_com 0x7f070107
 int drawable m3_avd_hide_password 0x7f0700ad
 int drawable m3_avd_show_password 0x7f0700ae
 int drawable m3_bottom_sheet_drag_handle 0x7f0700af
