@@ -2,6 +2,7 @@ R_DEF: Internal format may change without notice
 local
 color black
 color color_nav_menu
+color success
 color white
 drawable account_circle
 drawable baseline_account_box_24
@@ -41,13 +42,16 @@ id comic_author
 id comic_genre
 id comic_image
 id comic_title
+id constraint
 id follow_button
 id frame_layout
 id home
 id imageView
 id image_view_chapter
+id linear
 id logout_icon
 id main
+id nested
 id pass
 id pro_login
 id profile

@@ -16,6 +16,14 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
     private List<Chapter> chapterList;
     private ChapterClickListener listener;
 
+    public List<Chapter> getChapterList() {
+        return chapterList;
+    }
+
+    public void setChapterList(List<Chapter> chapterList) {
+        this.chapterList = chapterList;
+    }
+
     public ChapterAdapter(List<Chapter> chapterList) {
         this.chapterList = chapterList;
     }

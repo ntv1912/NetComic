@@ -1,86 +1,78 @@
 [
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\activity_log_out.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\activity_log_out.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/item_comic_v.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/item_comic_v.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\item_chapter_image.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\item_chapter_image.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/activity_detail.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/activity_detail.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\activity_profile.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\activity_profile.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/fragment_setting.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/fragment_setting.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\activity_login.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\activity_login.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/activity_splash.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/activity_splash.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\fragment_downloaded_books.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\fragment_downloaded_books.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/activity_main.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\activity_detail.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\activity_detail.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/item_chapter_image.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/item_chapter_image.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\fragment_setting.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\fragment_setting.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/item_comic_h.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/item_comic_h.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\activity_splash.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\activity_splash.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/activity_log_out.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/activity_log_out.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\activity_chapter.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\activity_chapter.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/fragment_home.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\item_comic_v.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\item_comic_v.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/fragment_book_store.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/fragment_book_store.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\fragment_search.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\fragment_search.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/fragment_search.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/fragment_search.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\item_comic_h.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\item_comic_h.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/item_comic.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/item_comic.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\activity_main.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/fragment_favorite_books.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/fragment_favorite_books.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\fragment_favorite_books.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\fragment_favorite_books.xml"
-    },
-    {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\item_chapter.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\item_chapter.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/item_chapter.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/item_chapter.xml"
     },
     {
         "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/activity_register.xml",
         "source": "com.example.netcomic.app-main-38:/layout/activity_register.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\item_comic.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\item_comic.xml"
-    },
-    {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\activity_register.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\activity_register.xml"
-    },
-    {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\fragment_home.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\fragment_home.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/fragment_downloaded_books.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/fragment_downloaded_books.xml"
     },
     {
         "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/activity_login.xml",
         "source": "com.example.netcomic.app-main-38:/layout/activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-mergeDebugResources-35:\\layout\\fragment_book_store.xml",
-        "source": "C:\\Users\\ntvu2\\.gradle\\daemon\\8.2\\com.example.netcomic.app-main-38:\\layout\\fragment_book_store.xml"
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/activity_profile.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/activity_profile.xml"
+    },
+    {
+        "merged": "com.example.netcomic.app-mergeDebugResources-35:/layout/activity_chapter.xml",
+        "source": "com.example.netcomic.app-main-38:/layout/activity_chapter.xml"
     }
 ]

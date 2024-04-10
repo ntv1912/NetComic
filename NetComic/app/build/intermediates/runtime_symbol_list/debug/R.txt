@@ -2103,6 +2103,7 @@ int color secondary_text_default_material_dark 0x7f050304
 int color secondary_text_default_material_light 0x7f050305
 int color secondary_text_disabled_material_dark 0x7f050306
 int color secondary_text_disabled_material_light 0x7f050307
+int color success 0x7f050312
 int color switch_thumb_disabled_material_dark 0x7f050308
 int color switch_thumb_disabled_material_light 0x7f050309
 int color switch_thumb_material_dark 0x7f05030a
@@ -3470,6 +3471,7 @@ int id navigation_bar_item_labels_group 0x7f080141
 int id navigation_bar_item_large_label_view 0x7f080142
 int id navigation_bar_item_small_label_view 0x7f080143
 int id navigation_header_container 0x7f080144
+int id nested 0x7f080230
 int id never 0x7f080145
 int id neverCompleteToEnd 0x7f080146
 int id neverCompleteToStart 0x7f080147

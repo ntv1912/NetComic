@@ -5,11 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -23,6 +24,9 @@ public final class ActivityChapterBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ImageButton backButton;
+
+  @NonNull
   public final ImageButton btnChapterList;
 
   @NonNull
@@ -32,30 +36,36 @@ public final class ActivityChapterBinding implements ViewBinding {
   public final ImageButton btnPrevious;
 
   @NonNull
-  public final ImageButton btnReturn;
+  public final TextView chapterTitle;
 
   @NonNull
-  public final TextView chapterTitle;
+  public final ConstraintLayout constraint;
+
+  @NonNull
+  public final LinearLayout linear;
+
+  @NonNull
+  public final NestedScrollView nested;
 
   @NonNull
   public final RecyclerView recyclerView;
 
-  @NonNull
-  public final Toolbar toolbar;
-
   private ActivityChapterBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageButton btnChapterList, @NonNull ImageButton btnNext,
-      @NonNull ImageButton btnPrevious, @NonNull ImageButton btnReturn,
-      @NonNull TextView chapterTitle, @NonNull RecyclerView recyclerView,
-      @NonNull Toolbar toolbar) {
+      @NonNull ImageButton backButton, @NonNull ImageButton btnChapterList,
+      @NonNull ImageButton btnNext, @NonNull ImageButton btnPrevious,
+      @NonNull TextView chapterTitle, @NonNull ConstraintLayout constraint,
+      @NonNull LinearLayout linear, @NonNull NestedScrollView nested,
+      @NonNull RecyclerView recyclerView) {
     this.rootView = rootView;
+    this.backButton = backButton;
     this.btnChapterList = btnChapterList;
     this.btnNext = btnNext;
     this.btnPrevious = btnPrevious;
-    this.btnReturn = btnReturn;
     this.chapterTitle = chapterTitle;
+    this.constraint = constraint;
+    this.linear = linear;
+    this.nested = nested;
     this.recyclerView = recyclerView;
-    this.toolbar = toolbar;
   }
 
   @Override
@@ -85,6 +95,12 @@ public final class ActivityChapterBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.back_button;
+      ImageButton backButton = ViewBindings.findChildViewById(rootView, id);
+      if (backButton == null) {
+        break missingId;
+      }
+
       id = R.id.btn_chapter_list;
       ImageButton btnChapterList = ViewBindings.findChildViewById(rootView, id);
       if (btnChapterList == null) {
@@ -103,15 +119,23 @@ public final class ActivityChapterBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btn_return;
-      ImageButton btnReturn = ViewBindings.findChildViewById(rootView, id);
-      if (btnReturn == null) {
-        break missingId;
-      }
-
       id = R.id.chapter_title;
       TextView chapterTitle = ViewBindings.findChildViewById(rootView, id);
       if (chapterTitle == null) {
+        break missingId;
+      }
+
+      ConstraintLayout constraint = (ConstraintLayout) rootView;
+
+      id = R.id.linear;
+      LinearLayout linear = ViewBindings.findChildViewById(rootView, id);
+      if (linear == null) {
+        break missingId;
+      }
+
+      id = R.id.nested;
+      NestedScrollView nested = ViewBindings.findChildViewById(rootView, id);
+      if (nested == null) {
         break missingId;
       }
 
@@ -121,14 +145,8 @@ public final class ActivityChapterBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.toolbar;
-      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
-      if (toolbar == null) {
-        break missingId;
-      }
-
-      return new ActivityChapterBinding((ConstraintLayout) rootView, btnChapterList, btnNext,
-          btnPrevious, btnReturn, chapterTitle, recyclerView, toolbar);
+      return new ActivityChapterBinding((ConstraintLayout) rootView, backButton, btnChapterList,
+          btnNext, btnPrevious, chapterTitle, constraint, linear, nested, recyclerView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

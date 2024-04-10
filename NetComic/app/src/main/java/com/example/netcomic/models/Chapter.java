@@ -13,6 +13,10 @@ public class Chapter  implements Serializable {
         Id = id;
         this.title = title;
     }
+    public Chapter(String id, String title,int number) {
+        Id = id;
+        this.title = title;
+    }
 
     public String getId() {
         return Id;

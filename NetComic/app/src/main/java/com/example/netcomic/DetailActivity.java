@@ -1,5 +1,6 @@
 package com.example.netcomic;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +19,11 @@ import android.widget.Toast;
 import com.example.netcomic.adapters.ChapterAdapter;
 import com.example.netcomic.models.Chapter;
 import com.example.netcomic.models.Comic;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -36,6 +42,7 @@ public class DetailActivity extends AppCompatActivity implements ChapterAdapter.
     private RecyclerView recyclerViewChapters;
     private ChapterAdapter chapterAdapter;
     private Comic comic;
+    private Button btnReadFromStart,btnFollow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +53,8 @@ public class DetailActivity extends AppCompatActivity implements ChapterAdapter.
         titleTextView = findViewById(R.id.comic_title);
         authorTextView = findViewById(R.id.comic_author);
         genreTextView = findViewById(R.id.comic_genre);
+        btnReadFromStart= findViewById(R.id.read_from_start_button);
+        btnFollow= findViewById(R.id.follow_button);
         recyclerViewChapters = findViewById(R.id.recycler_view_chapters);
 
         // Lấy đối tượng Comic từ Intent
@@ -80,6 +89,65 @@ public class DetailActivity extends AppCompatActivity implements ChapterAdapter.
                 finish();
             }
         });
+        btnReadFromStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chapterAdapter != null && !chapterAdapter.getChapterList().isEmpty()) {
+                    // Lấy danh sách các chương từ adapter
+                    List<Chapter> chapterList = chapterAdapter.getChapterList();
+
+                    // Lấy chapter đầu tiên từ danh sách
+                    Chapter firstChapter = chapterList.get(chapterList.size() - 1);
+
+                    // Lấy comicId từ Comic được truyền vào DetailActivity
+                    String comicId = comic.getId();
+
+                    // Chuyển sang ChapterActivity và truyền thông tin của chương đầu tiên
+                    Intent intent = new Intent(DetailActivity.this, ChapterActivity.class);
+                    intent.putExtra("COMIC_ID", comicId); // Truyền comicId của chương
+                    intent.putExtra("CHAPTER_ID", firstChapter.getId()); // Truyền chapterId của chương
+                    intent.putExtra("CHAPTER_Title", firstChapter.getTitle()); // Truyền tiêu đề của chương
+                    intent.putExtra("CHAPTER_Number", firstChapter.getNumber()); // Truyền số thứ tự của chương
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(DetailActivity.this, "No chapters available", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        btnFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Lấy ID của người dùng, ví dụ: từ Firebase Auth hoặc một trường ID đã xác định
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                if (user != null) {
+                    String userId = user.getUid();
+                    String comicId = comic.getId();
+
+                    // Thực hiện cập nhật trường followedComics cho người dùng trong Firestore
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("users")
+                            .document(userId)
+                            .update("followedComics", FieldValue.arrayUnion(comicId))
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    btnFollow.setText("Followed");
+                                    Toast.makeText(DetailActivity.this, "Đã follow truyện thành công", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(DetailActivity.this, "Lỗi khi follow truyện", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                } else {
+                    Toast.makeText(DetailActivity.this, "Người dùng không tồn tại", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     private void loadChapters(String comicId) {
@@ -94,7 +162,11 @@ public class DetailActivity extends AppCompatActivity implements ChapterAdapter.
                     for (QueryDocumentSnapshot chapterSnapshot : chapterDocumentSnapshots) {
                         String chapterId = chapterSnapshot.getId(); // Lấy ID của chương
                         String chapterTitle = chapterSnapshot.getString("title");
-                        chapterList.add(new Chapter(chapterId, chapterTitle));
+                        Long numberLong = chapterSnapshot.getLong("number");
+                        int number = numberLong != null ? numberLong.intValue() : 0;
+                        chapterList.add(new Chapter(chapterId, chapterTitle,number));
+//                        chapterList.add(new Chapter(chapterId, chapterTitle));
+
                     }
 
                     // Hiển thị danh sách chương bằng ChapterAdapter
@@ -126,6 +198,7 @@ public class DetailActivity extends AppCompatActivity implements ChapterAdapter.
         intent.putExtra("COMIC_ID", comicId); // Truyền comicId của chương
         intent.putExtra("CHAPTER_ID", chapter.getId()); // Truyền chapterId của chương
         intent.putExtra("CHAPTER_Title", chapter.getTitle()); // Truyền chapterId của chương
+        intent.putExtra("CHAPTER_Number", chapter.getNumber());
         startActivity(intent);
     }
 }
