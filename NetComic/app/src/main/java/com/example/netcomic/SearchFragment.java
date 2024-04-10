@@ -2,6 +2,7 @@ package com.example.netcomic;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -29,7 +30,7 @@ import java.util.List;
  * Use the {@link SearchFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment implements ComicAdapter.ComicClickListener {
 
     private SearchView searchView;
     private RecyclerView recyclerView;
@@ -88,7 +89,7 @@ public class SearchFragment extends Fragment {
 
         // Initialize RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        comicAdapter = new ComicAdapter(getContext(), comicList,false);
+        comicAdapter = new ComicAdapter(getContext(), comicList,false,this);
         loadAllComics();
         recyclerView.setAdapter(comicAdapter);
 
@@ -132,15 +133,33 @@ public class SearchFragment extends Fragment {
         db.collection("comics")
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
+                    List<Comic> comicList = new ArrayList<>();
                     for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                         Comic comic = documentSnapshot.toObject(Comic.class);
+
+                        // Lấy ID của tài liệu (comic) từ Firestore
+                        String comicId = documentSnapshot.getId();
+
+                        // Lấy tên tác giả từ Firestore và thiết lập vào đối tượng Comic
+                        String author = documentSnapshot.getString("author");
+                        comic.setAuthor(author);
+
+//                        // Lấy danh sách chương từ Firestore và thiết lập vào đối tượng Comic
+//                        List<String> chapterList = (List<String>) documentSnapshot.get("chapters");
+//                        comic.setChapterList(chapterList);
+
+                        // Thiết lập ID của comic vào đối tượng Comic
+                        comic.setId(comicId);
+
+                        // Thêm comic vào danh sách comicList
                         loadedComicList.add(comic);
                     }
+
                     // Sau khi có danh sách truyện, cập nhật RecyclerView thông qua ComicAdapter
                     comicAdapter.setData(loadedComicList);
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(getContext(), "Failed to load comics: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    // Xử lý khi truy vấn không thành công
                     Log.e(TAG, "Error fetching comics: " + e.getMessage());
                 });
     }
@@ -163,6 +182,14 @@ public class SearchFragment extends Fragment {
 
         // Cập nhật RecyclerView với kết quả tìm kiếm
         comicAdapter.setData(comicList);
+    }
+
+    @Override
+    public void onComicClick(Comic comic) {
+        Toast.makeText(getContext(), "Clicked: " + comic.getTitle(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getContext(), DetailActivity.class);
+        intent.putExtra("COMIC", comic); // Gửi đối tượng Comic qua Intent
+        startActivity(intent);
     }
 }
 

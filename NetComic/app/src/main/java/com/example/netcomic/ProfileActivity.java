@@ -8,8 +8,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -24,9 +26,11 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.netcomic.models.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -53,14 +57,15 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseStorage mStorage;
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
-    private TextView  pName, pEmail, pChange, pRemove;
+    private TextView  pName, pEmail, pChange, pRemove,pTitle;
     private ImageView pImg;
     GoogleSignInClient mGoogleSignIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        pImg= findViewById(R.id.profile_img);
+
+        pImg = findViewById(R.id.profile_img);
         pName = findViewById(R.id.profile_name);
         pEmail = findViewById(R.id.profile_email);
         pChange = findViewById(R.id.change_pass);
@@ -68,6 +73,7 @@ public class ProfileActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mStorage = FirebaseStorage.getInstance();
         mStorageRef = mStorage.getReference();
+        pTitle = findViewById(R.id.profile_title);
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
@@ -79,9 +85,33 @@ public class ProfileActivity extends AppCompatActivity {
             String name = currentUser.getDisplayName();
             String email = currentUser.getEmail();
 
-            pName.setText(pName.getText()+((name==null||name.isEmpty())?":  Bạn chưa thiết lập tên tài khoản":name));
-            pEmail.setText(pEmail.getText()+":  "+email);
+            // Kiểm tra nếu tên người dùng không rỗng thì hiển thị tên, ngược lại hiển thị một thông báo
+            if (TextUtils.isEmpty(name)) {
+                pName.setText("Bạn chưa thiết lập tên tài khoản");
+            } else {
+                pName.setText("Tài khoản: "+name);
+            }
+
+            pEmail.setText("Email: " + email);
+//            User dataManager = User.getInstance();
+//            dataManager.setUserName(name);
+//            dataManager.setUserEmail(email);
+//            dataManager.setProfileImageUri((photoUrl != null) ? photoUrl.toString() : "");
+
+            SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("userName", name);
+            editor.putString("userEmail", email);
+            editor.putString("profileImageUri", (photoUrl != null) ? photoUrl.toString() : "");
+            editor.apply();
         }
+
+        pTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         pImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,76 +119,22 @@ public class ProfileActivity extends AppCompatActivity {
                 changeAvatar();
             }
         });
+
         pName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lấy tên người dùng hiện tại
                 String currentName = pName.getText().toString();
 
-                // Hiển thị dialog hoặc dialog fragment cho người dùng nhập tên mới
-                // Sau khi người dùng nhập tên mới, thực hiện cập nhật trên Firebase
-                // Đoạn mã dưới đây chỉ là một ví dụ và cần được thay thế bằng mã thực tế của bạn
-
-                // Ví dụ: Sử dụng AlertDialog để nhận tên mới từ người dùng
-                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
-                builder.setTitle("Nhập tên mới");
-
-                // Thiết lập trường nhập dữ liệu trong AlertDialog
-                final EditText input = new EditText(ProfileActivity.this);
-                input.setInputType(InputType.TYPE_CLASS_TEXT);
-                input.setText(currentName);
-                builder.setView(input);
-
-                // Thiết lập nút "OK" trong AlertDialog
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Lấy tên mới từ trường nhập dữ liệu
-                        String newName = input.getText().toString();
-
-                        // Kiểm tra xem tên mới có rỗng không
-                        if (!TextUtils.isEmpty(newName)) {
-                            // Thực hiện cập nhật tên trên Firebase
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                            if (user != null) {
-                                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                        .setDisplayName(newName)
-                                        .build();
-
-                                user.updateProfile(profileUpdates)
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    // Cập nhật tên thành công
-                                                    Toast.makeText(ProfileActivity.this, "Tên người dùng đã được cập nhật.", Toast.LENGTH_SHORT).show();
-                                                    // Cập nhật lại TextView hiển thị tên người dùng
-                                                    pName.setText(newName);
-                                                } else {
-                                                    // Xảy ra lỗi khi cập nhật tên
-                                                    Toast.makeText(ProfileActivity.this, "Có lỗi xảy ra khi cập nhật tên người dùng.", Toast.LENGTH_SHORT).show();
-                                                }
-                                            }
-                                        });
-                            }
-                        } else {
-                            // Hiển thị thông báo nếu tên mới rỗng
-                            Toast.makeText(ProfileActivity.this, "Tên không được để trống.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
-                // Thiết lập nút "Hủy" trong AlertDialog
-                builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Đóng dialog nếu người dùng bấm nút "Hủy"
-                        dialog.cancel();
-                    }
-                });
-
-                // Hiển thị AlertDialog
-                builder.show();
+                // Kiểm tra xem currentName có chứa tiền tố "Tài khoản: " hay không
+                if (currentName.startsWith("Tài khoản: ")) {
+                    // Nếu có, lấy phần tên sau tiền tố "Tài khoản: "
+                    String existingName = currentName.substring("Tài khoản: ".length());
+                    showNameDialog(existingName);
+                } else {
+                    // Nếu không, sử dụng toàn bộ currentName làm giá trị mặc định
+                    showNameDialog(currentName);
+                }
             }
         });
 
@@ -239,12 +215,70 @@ public class ProfileActivity extends AppCompatActivity {
                 builder.show();
             }
         });
-
-
-
-
-
     }
+    // Phương thức hiển thị dialog cho người dùng nhập tên mới
+    private void showNameDialog(String defaultValue) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+        builder.setTitle("Nhập tên mới");
+
+        // Thiết lập trường nhập dữ liệu trong AlertDialog
+        final EditText input = new EditText(ProfileActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        // Thiết lập nút "OK" trong AlertDialog
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Lấy tên mới từ trường nhập dữ liệu
+                String newName = input.getText().toString();
+
+                // Kiểm tra xem tên mới có rỗng không
+                if (!TextUtils.isEmpty(newName)) {
+                    // Thực hiện cập nhật tên trên Firebase
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if (user != null) {
+                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                .setDisplayName(newName)
+                                .build();
+
+                        user.updateProfile(profileUpdates)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            // Cập nhật tên thành công
+                                            Toast.makeText(ProfileActivity.this, "Tên người dùng đã được cập nhật.", Toast.LENGTH_SHORT).show();
+                                            // Cập nhật lại TextView hiển thị tên người dùng
+                                            pName.setText("Tài khoản: " + newName);
+                                        } else {
+                                            // Xảy ra lỗi khi cập nhật tên
+                                            Toast.makeText(ProfileActivity.this, "Có lỗi xảy ra khi cập nhật tên người dùng.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                    }
+                } else {
+                    // Hiển thị thông báo nếu tên mới rỗng
+                    Toast.makeText(ProfileActivity.this, "Tên không được để trống.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // Thiết lập nút "Hủy" trong AlertDialog
+        builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Đóng dialog nếu người dùng bấm nút "Hủy"
+                dialog.cancel();
+            }
+        });
+
+        // Hiển thị AlertDialog
+        builder.show();
+    }
+
 
     public void changeAvatar() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);

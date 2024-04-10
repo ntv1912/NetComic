@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -16,6 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.netcomic.MainActivity;
+import com.example.netcomic.R;
+import com.example.netcomic.RegisterActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -28,19 +30,29 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private static final int RC_SIGN_IN = 20;
 
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private EditText eUser, ePass;
     private Button btnLogin, btnRegister, btnLogingg;
-    int RC_SIGN_IN = 20;
-    ProgressBar pro_login;
+    private ProgressBar pro_login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         mAuth = FirebaseAuth.getInstance();
         eUser = findViewById(R.id.user);
         ePass = findViewById(R.id.pass);
@@ -49,11 +61,11 @@ public class LoginActivity extends AppCompatActivity {
         btnLogingg = findViewById(R.id.btn_logingg);
         pro_login = findViewById(R.id.pro_login);
 
-        GoogleSignInOptions gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(this,gso);
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,23 +76,18 @@ public class LoginActivity extends AppCompatActivity {
                     public void run() {
                         pro_login.setVisibility(View.INVISIBLE);
                     }
-                },200);
+                }, 200);
                 login();
             }
         });
 
-//        btnLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                login();
-//            }
-//        });
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 register();
             }
         });
+
         btnLogingg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,48 +96,98 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser!= null){
-            Intent i= new Intent(LoginActivity.this,MainActivity.class);
-            startActivity(i);
+        if (currentUser != null) {
+            // Người dùng đã đăng nhập, chuyển đến MainActivity
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
         }
     }
 
     private void loginGG() {
-        Intent i = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(i,RC_SIGN_IN);
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==RC_SIGN_IN){
-            Task<GoogleSignInAccount> task= GoogleSignIn.getSignedInAccountFromIntent(data);
-            try{
-                GoogleSignInAccount account =task.getResult(ApiException.class);
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuth(account.getIdToken());
-            }catch (Exception e){
-                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Toast.makeText(this, "Đăng nhập bằng Google thất bại: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     private void firebaseAuth(String idToken) {
-        AuthCredential credential =GoogleAuthProvider.getCredential(idToken,null);
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
+                            // Xác thực thành công, kiểm tra và tạo người dùng trong Firestore
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent i = new Intent(LoginActivity.this,MainActivity.class);
-                            startActivity(i);
-                        }else {
-                            Toast.makeText(LoginActivity.this,"LoginGG failed",Toast.LENGTH_LONG).show();
+                            if (user != null) {
+                                checkAndCreateUserInFirestore(user.getUid());
+                            }
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Đăng nhập bằng Google thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void checkAndCreateUserInFirestore(String userId) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference userRef = db.collection("users").document(userId);
+
+        userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        // Tài khoản người dùng đã tồn tại trong Firestore
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        finish();
+                    } else {
+                        // Tạo tài khoản người dùng mới trong Firestore
+                        createUserInFirestore(userId);
+                    }
+                } else {
+                    Toast.makeText(LoginActivity.this, "Lỗi khi kiểm tra tài khoản trong Firestore", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void createUserInFirestore(String userId) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference userRef = db.collection("users").document(userId);
+
+        Map<String, Object> userData = new HashMap<>();
+        userData.put("followedComics", new ArrayList<>()); // Khởi tạo trường followedComics
+
+        userRef.set(userData)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(LoginActivity.this, "Đã tạo tài khoản người dùng trong Firestore", Toast.LENGTH_SHORT).show();
+                            // Tạo tài khoản người dùng thành công trong Firestore
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+                            finish();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Lỗi khi tạo tài khoản người dùng trong Firestore", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -144,21 +201,22 @@ public class LoginActivity extends AppCompatActivity {
     private void login() {
         String email = eUser.getText().toString().trim();
         String pass = ePass.getText().toString().trim();
-        if (TextUtils.isEmpty(email)) {
-            Toast.makeText(this, "Email không được để trống", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(pass)) {
+            Toast.makeText(this, "Email hoặc mật khẩu không được để trống", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (TextUtils.isEmpty(pass)) {
-            Toast.makeText(this, "Password không được để trống", Toast.LENGTH_SHORT).show();
-            return;
-        }
+
         mAuth.signInWithEmailAndPassword(email, pass)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Đăng nhập thành công bằng email và mật khẩu
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            finish();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Đăng nhập thất bại, vui lòng kiểm tra lại email và mật khẩu", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
     }

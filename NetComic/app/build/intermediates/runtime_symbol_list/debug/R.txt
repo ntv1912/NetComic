@@ -2994,9 +2994,11 @@ int drawable avd_hide_password 0x7f070079
 int drawable avd_show_password 0x7f07007a
 int drawable baseline_account_box_24 0x7f0700f8
 int drawable baseline_arrow_back_24 0x7f0700fd
+int drawable baseline_format_list_bulleted_24 0x7f070101
 int drawable baseline_home_24 0x7f07007b
 int drawable baseline_logout_24 0x7f0700f9
 int drawable baseline_menu_book_24 0x7f0700fa
+int drawable baseline_navigate_before_24 0x7f070102
 int drawable baseline_navigate_next_24 0x7f0700fb
 int drawable baseline_search_24 0x7f0700fc
 int drawable baseline_settings_24 0x7f07007c
@@ -3214,6 +3216,7 @@ int id auto 0x7f080055
 int id autoComplete 0x7f080056
 int id autoCompleteToEnd 0x7f080057
 int id autoCompleteToStart 0x7f080058
+int id back_button 0x7f08021c
 int id barrier 0x7f080059
 int id baseline 0x7f08005a
 int id beginOnFirstDraw 0x7f08005b
@@ -3232,9 +3235,12 @@ int id browser_actions_menu_item_icon 0x7f080067
 int id browser_actions_menu_item_text 0x7f080068
 int id browser_actions_menu_items 0x7f080069
 int id browser_actions_menu_view 0x7f08006a
+int id btn_chapter_list 0x7f080224
 int id btn_login 0x7f08006b
 int id btn_logingg 0x7f08006c
 int id btn_logout 0x7f08006d
+int id btn_next 0x7f080225
+int id btn_previous 0x7f080226
 int id btn_register 0x7f08006e
 int id btn_return 0x7f08006f
 int id buttonPanel 0x7f080070
@@ -3251,6 +3257,7 @@ int id chain 0x7f08007a
 int id chain2 0x7f08007b
 int id chains 0x7f08007c
 int id change_pass 0x7f08020c
+int id chapter_title 0x7f080227
 int id checkbox 0x7f08007d
 int id checked 0x7f08007e
 int id chronometer 0x7f08007f
@@ -3261,6 +3268,7 @@ int id clip_vertical 0x7f080083
 int id clockwise 0x7f080084
 int id closest 0x7f080085
 int id collapseActionView 0x7f080086
+int id comic_author 0x7f08021d
 int id comic_genre 0x7f080213
 int id comic_image 0x7f080214
 int id comic_title 0x7f080215
@@ -3338,6 +3346,7 @@ int id fitXY 0x7f0800cd
 int id fixed 0x7f0800ce
 int id flip 0x7f0800cf
 int id floating 0x7f0800d0
+int id follow_button 0x7f08021e
 int id forever 0x7f0800d1
 int id fragment_container_view_tag 0x7f0800d2
 int id frame_layout 0x7f0800d3
@@ -3365,6 +3374,7 @@ int id ignore 0x7f0800e8
 int id ignoreRequest 0x7f0800e9
 int id image 0x7f0800ea
 int id imageView 0x7f0800eb
+int id image_view_chapter 0x7f080229
 int id immediateStop 0x7f0800ec
 int id included 0x7f0800ed
 int id indeterminate 0x7f0800ee
@@ -3508,12 +3518,18 @@ int id profile_email 0x7f08020d
 int id profile_img 0x7f08020e
 int id profile_info_btn 0x7f08020f
 int id profile_name 0x7f080210
+int id profile_title 0x7f080223
 int id profile_txt 0x7f080212
 int id progress_circular 0x7f080176
 int id progress_horizontal 0x7f080177
 int id radio 0x7f080178
 int id ratio 0x7f080179
+int id read_from_start_button 0x7f08021f
 int id rectangles 0x7f08017a
+int id recycler_view 0x7f080228
+int id recycler_view_chapters 0x7f080221
+int id recycler_view_download_book 0x7f08022b
+int id recycler_view_favorite_book 0x7f08022c
 int id recycler_view_horizontal 0x7f080216
 int id recycler_view_search 0x7f08021a
 int id recycler_view_vertical 0x7f080217
@@ -3592,6 +3608,7 @@ int id submenuarrow 0x7f0801c0
 int id submit_area 0x7f0801c1
 int id supportScrollUp 0x7f0801c2
 int id tabMode 0x7f0801c3
+int id tab_layout 0x7f08022d
 int id tag_accessibility_actions 0x7f0801c4
 int id tag_accessibility_clickable_spans 0x7f0801c5
 int id tag_accessibility_heading 0x7f0801c6
@@ -3618,6 +3635,7 @@ int id textView3 0x7f080219
 int id text_input_end_icon 0x7f0801d9
 int id text_input_error_icon 0x7f0801da
 int id text_input_start_icon 0x7f0801db
+int id text_view_chapter 0x7f080222
 int id textinput_counter 0x7f0801dc
 int id textinput_error 0x7f0801dd
 int id textinput_helper_text 0x7f0801de
@@ -3629,6 +3647,7 @@ int id title 0x7f0801e3
 int id titleDividerNoCustom 0x7f0801e4
 int id title_template 0x7f0801e5
 int id toggle 0x7f0801e6
+int id toolbar 0x7f080220
 int id top 0x7f0801e7
 int id topPanel 0x7f0801e8
 int id touch_outside 0x7f0801e9
@@ -3648,6 +3667,7 @@ int id useLogo 0x7f0801f6
 int id user 0x7f0801f7
 int id vertical_only 0x7f0801f8
 int id view_offset_helper 0x7f0801f9
+int id view_pager 0x7f08022e
 int id view_transition 0x7f0801fa
 int id view_tree_lifecycle_owner 0x7f0801fb
 int id view_tree_on_back_pressed_dispatcher_owner 0x7f0801fc
@@ -3780,6 +3800,8 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0b0018
 int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
+int layout activity_chapter 0x7f0b007b
+int layout activity_detail 0x7f0b0079
 int layout activity_log_out 0x7f0b001c
 int layout activity_login 0x7f0b001d
 int layout activity_main 0x7f0b001e
@@ -3805,9 +3827,13 @@ int layout design_navigation_menu_item 0x7f0b0030
 int layout design_text_input_end_icon 0x7f0b0031
 int layout design_text_input_start_icon 0x7f0b0032
 int layout fragment_book_store 0x7f0b0033
+int layout fragment_downloaded_books 0x7f0b007d
+int layout fragment_favorite_books 0x7f0b007e
 int layout fragment_home 0x7f0b0034
 int layout fragment_search 0x7f0b0036
 int layout fragment_setting 0x7f0b0037
+int layout item_chapter 0x7f0b007a
+int layout item_chapter_image 0x7f0b007c
 int layout item_comic 0x7f0b0076
 int layout item_comic_h 0x7f0b0077
 int layout item_comic_v 0x7f0b0078

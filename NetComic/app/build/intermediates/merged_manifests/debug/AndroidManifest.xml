@@ -25,12 +25,18 @@
         android:debuggable="true"
         android:extractNativeLibs="false"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/netcomic"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.NetComic" >
+        <activity
+            android:name="com.example.netcomic.ChapterActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.netcomic.DetailActivity"
+            android:exported="false" />
         <activity
             android:name="com.example.netcomic.ProfileActivity"
             android:exported="false" />
@@ -51,12 +57,10 @@
             android:exported="false" />
         <activity
             android:name="com.example.netcomic.LoginActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name="com.example.netcomic.LogOutActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name="com.google.firebase.auth.internal.GenericIdpActivity"
             android:excludeFromRecents="true"

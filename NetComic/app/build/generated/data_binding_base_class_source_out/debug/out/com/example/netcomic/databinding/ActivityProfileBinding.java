@@ -33,6 +33,9 @@ public final class ActivityProfileBinding implements ViewBinding {
   public final TextView profileName;
 
   @NonNull
+  public final TextView profileTitle;
+
+  @NonNull
   public final TextView profileTxt;
 
   @NonNull
@@ -40,12 +43,14 @@ public final class ActivityProfileBinding implements ViewBinding {
 
   private ActivityProfileBinding(@NonNull LinearLayoutCompat rootView, @NonNull TextView changePass,
       @NonNull TextView profileEmail, @NonNull ImageView profileImg, @NonNull TextView profileName,
-      @NonNull TextView profileTxt, @NonNull TextView removeProfile) {
+      @NonNull TextView profileTitle, @NonNull TextView profileTxt,
+      @NonNull TextView removeProfile) {
     this.rootView = rootView;
     this.changePass = changePass;
     this.profileEmail = profileEmail;
     this.profileImg = profileImg;
     this.profileName = profileName;
+    this.profileTitle = profileTitle;
     this.profileTxt = profileTxt;
     this.removeProfile = removeProfile;
   }
@@ -101,6 +106,12 @@ public final class ActivityProfileBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.profile_title;
+      TextView profileTitle = ViewBindings.findChildViewById(rootView, id);
+      if (profileTitle == null) {
+        break missingId;
+      }
+
       id = R.id.profile_txt;
       TextView profileTxt = ViewBindings.findChildViewById(rootView, id);
       if (profileTxt == null) {
@@ -114,7 +125,7 @@ public final class ActivityProfileBinding implements ViewBinding {
       }
 
       return new ActivityProfileBinding((LinearLayoutCompat) rootView, changePass, profileEmail,
-          profileImg, profileName, profileTxt, removeProfile);
+          profileImg, profileName, profileTitle, profileTxt, removeProfile);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

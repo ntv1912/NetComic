@@ -2995,9 +2995,11 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable baseline_account_box_24
 drawable baseline_arrow_back_24
+drawable baseline_format_list_bulleted_24
 drawable baseline_home_24
 drawable baseline_logout_24
 drawable baseline_menu_book_24
+drawable baseline_navigate_before_24
 drawable baseline_navigate_next_24
 drawable baseline_search_24
 drawable baseline_settings_24
@@ -3215,6 +3217,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id back_button
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3233,9 +3236,12 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btn_chapter_list
 id btn_login
 id btn_logingg
 id btn_logout
+id btn_next
+id btn_previous
 id btn_register
 id btn_return
 id buttonPanel
@@ -3252,6 +3258,7 @@ id chain
 id chain2
 id chains
 id change_pass
+id chapter_title
 id checkbox
 id checked
 id chronometer
@@ -3262,6 +3269,7 @@ id clip_vertical
 id clockwise
 id closest
 id collapseActionView
+id comic_author
 id comic_genre
 id comic_image
 id comic_title
@@ -3339,6 +3347,7 @@ id fitXY
 id fixed
 id flip
 id floating
+id follow_button
 id forever
 id fragment_container_view_tag
 id frame_layout
@@ -3366,6 +3375,7 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id image_view_chapter
 id immediateStop
 id included
 id indeterminate
@@ -3509,12 +3519,18 @@ id profile_email
 id profile_img
 id profile_info_btn
 id profile_name
+id profile_title
 id profile_txt
 id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id read_from_start_button
 id rectangles
+id recycler_view
+id recycler_view_chapters
+id recycler_view_download_book
+id recycler_view_favorite_book
 id recycler_view_horizontal
 id recycler_view_search
 id recycler_view_vertical
@@ -3593,6 +3609,7 @@ id submenuarrow
 id submit_area
 id supportScrollUp
 id tabMode
+id tab_layout
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -3619,6 +3636,7 @@ id textView3
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
+id text_view_chapter
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -3630,6 +3648,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toolbar
 id top
 id topPanel
 id touch_outside
@@ -3649,6 +3668,7 @@ id useLogo
 id user
 id vertical_only
 id view_offset_helper
+id view_pager
 id view_transition
 id view_tree_lifecycle_owner
 id view_tree_on_back_pressed_dispatcher_owner
@@ -3781,6 +3801,8 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_chapter
+layout activity_detail
 layout activity_log_out
 layout activity_login
 layout activity_main
@@ -3806,9 +3828,13 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_book_store
+layout fragment_downloaded_books
+layout fragment_favorite_books
 layout fragment_home
 layout fragment_search
 layout fragment_setting
+layout item_chapter
+layout item_chapter_image
 layout item_comic
 layout item_comic_h
 layout item_comic_v
