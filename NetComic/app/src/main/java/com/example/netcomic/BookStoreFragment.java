@@ -71,6 +71,7 @@ public class BookStoreFragment extends Fragment {
         viewPager = view.findViewById(R.id.view_pager);
 
         // Tạo và gắn adapter cho ViewPager2
+
         BooksPagerAdapter adapter = new BooksPagerAdapter(getChildFragmentManager(), getLifecycle());
         viewPager.setAdapter(adapter);
 
