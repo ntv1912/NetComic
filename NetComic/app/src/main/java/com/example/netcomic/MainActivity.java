@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.netcomic.broadcast.InternetReceiver;
 import com.example.netcomic.databinding.ActivityMainBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -24,8 +27,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-    ActivityMainBinding binding;
-
+    private ActivityMainBinding binding;
+    private InternetReceiver internet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        internet= new InternetReceiver();
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -55,27 +59,40 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.frame_layout, fragment);
         transaction.commit();
     }
-    private long backPressedTime;
+//    private long backPressedTime;
+//    @Override
+//    public void onBackPressed() {
+//        if (isHomeFragmentVisible()) {
+//            if (backPressedTime + 2000 > System.currentTimeMillis()) {
+//                super.onBackPressed();
+//                finishAffinity();
+//                return;
+//            } else {
+//                Toast.makeText(this, "Press back again to exit the application", Toast.LENGTH_SHORT).show();
+//            }
+//            backPressedTime = System.currentTimeMillis();
+//        } else {
+//            super.onBackPressed();
+//        }
+//    }
+//
+//    private boolean isHomeFragmentVisible() {
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        Fragment currentFragment = fragmentManager.findFragmentById(R.id.frame_layout);
+//        return currentFragment instanceof HomeFragment;
+//    }
+
     @Override
-    public void onBackPressed() {
-        if (isHomeFragmentVisible()) {
-            if (backPressedTime + 2000 > System.currentTimeMillis()) {
-                super.onBackPressed();
-                finishAffinity();
-                return;
-            } else {
-                Toast.makeText(this, "Press back again to exit the application", Toast.LENGTH_SHORT).show();
-            }
-            backPressedTime = System.currentTimeMillis();
-        } else {
-            super.onBackPressed();
-        }
-    }
+    protected void onResume() {
+        super.onResume();
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(internet, intentFilter);
 
-    private boolean isHomeFragmentVisible() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment currentFragment = fragmentManager.findFragmentById(R.id.frame_layout);
-        return currentFragment instanceof HomeFragment;
-    }
 
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(internet);
+    }
 }

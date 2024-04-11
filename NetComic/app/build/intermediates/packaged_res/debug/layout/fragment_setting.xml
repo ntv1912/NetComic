@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment"
-    android:background="#FFFFFF">
+    tools:context=".ProfileActivity"
+    style="@style/SCREEN"
+    >
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -13,7 +14,9 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:text="Cá Nhân"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+
+        />
 
     <ImageView
         android:id="@+id/logout_icon"
@@ -39,6 +42,7 @@
         android:text="vu nguyen"
         android:layout_marginLeft="120dp"
         android:layout_marginTop="120dp"
+
         />
     <TextView
         android:id="@+id/profile_email"
@@ -47,11 +51,36 @@
         android:text="email"
         android:layout_marginLeft="120dp"
         android:layout_marginTop="150dp"
+
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="230dp"
+        >
+
+        <TextView
+            android:padding="7dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Dark Mode"
+            android:layout_weight="1"
+            android:paddingStart="15dp"
+            android:gravity="start"
+            style="@style/TEXT"
+            />
+
+        <Switch
+            android:padding="7dp"
+            android:id="@+id/switch_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="270dp"
         android:orientation="vertical"
         >
         <androidx.appcompat.widget.AppCompatButton
@@ -64,7 +93,33 @@
             android:drawableStart="@drawable/account_circle"
             android:drawableEnd="@drawable/baseline_navigate_next_24"
             android:padding="15dp"
+            style="@style/TEXT"
             />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:orientation="vertical"
+        >
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_present"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Giới Thiệu"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:drawableStart="@drawable/baseline_co_present_24"
+            android:drawableEnd="@drawable/baseline_navigate_next_24"
+            android:padding="15dp"
+            style="@style/TEXT"
+            />
+    </LinearLayout>
+    <WebView
+        android:id="@+id/Webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
 </FrameLayout>

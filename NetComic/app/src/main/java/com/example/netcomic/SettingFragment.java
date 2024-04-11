@@ -7,14 +7,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.netcomic.models.User;
@@ -36,8 +39,15 @@ public class SettingFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private ImageView iconLogOut,imgProfile;
-    private Button btnProfile;
+    private Button btnProfile,btnPresent;
     private TextView profileName,profileEmail;
+    WebView webView;
+//
+    Switch switcher;
+    boolean nightMode;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+//
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -67,7 +77,6 @@ public class SettingFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
@@ -77,7 +86,43 @@ public class SettingFragment extends Fragment {
         profileEmail= view.findViewById(R.id.profile_email);
         profileName= view.findViewById(R.id.profile_name);
         imgProfile= view.findViewById(R.id.profile_img);
+        btnPresent = view.findViewById(R.id.btn_present);
+        webView = view.findViewById(R.id.Webview);
+        switcher = view.findViewById(R.id.switch_mode);
+//
+//        // Lấy trạng thái từ SharedPreferences
+        sharedPreferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        nightMode = sharedPreferences.getBoolean("night", false);
 
+
+        if(nightMode){
+            switcher.setChecked(true);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            switcher.setChecked(false);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
+        switcher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(nightMode){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("night",false);
+                    nightMode = false; // Cập nhật nightMode
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("night", true);
+                    nightMode = true; // Cập nhật nightMode
+                }
+
+                editor.apply();
+            }
+        });
+
+        //
 //        User dataManager = User.getInstance();
 //        String userName = dataManager.getUserName();
 //        String userEmail = dataManager.getUserEmail();
@@ -110,7 +155,17 @@ public class SettingFragment extends Fragment {
 
             }
         });
+        btnPresent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Hiển thị WebView khi nhấn vào nút "Giới Thiệu"
+                webView.setVisibility(View.VISIBLE);
 
+                //Load Trang Web
+                String url = "https://www.tlu.edu.vn/";
+                webView.loadUrl(url);
+            }
+        });
         return view;
 
     }

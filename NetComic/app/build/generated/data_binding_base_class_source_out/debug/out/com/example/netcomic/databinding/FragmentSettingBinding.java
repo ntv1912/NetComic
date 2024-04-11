@@ -4,8 +4,10 @@ package com.example.netcomic.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,6 +24,12 @@ public final class FragmentSettingBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
+  public final WebView Webview;
+
+  @NonNull
+  public final AppCompatButton btnPresent;
+
+  @NonNull
   public final ImageView logoutIcon;
 
   @NonNull
@@ -36,15 +44,23 @@ public final class FragmentSettingBinding implements ViewBinding {
   @NonNull
   public final TextView profileName;
 
-  private FragmentSettingBinding(@NonNull FrameLayout rootView, @NonNull ImageView logoutIcon,
+  @NonNull
+  public final Switch switchMode;
+
+  private FragmentSettingBinding(@NonNull FrameLayout rootView, @NonNull WebView Webview,
+      @NonNull AppCompatButton btnPresent, @NonNull ImageView logoutIcon,
       @NonNull TextView profileEmail, @NonNull ImageView profileImg,
-      @NonNull AppCompatButton profileInfoBtn, @NonNull TextView profileName) {
+      @NonNull AppCompatButton profileInfoBtn, @NonNull TextView profileName,
+      @NonNull Switch switchMode) {
     this.rootView = rootView;
+    this.Webview = Webview;
+    this.btnPresent = btnPresent;
     this.logoutIcon = logoutIcon;
     this.profileEmail = profileEmail;
     this.profileImg = profileImg;
     this.profileInfoBtn = profileInfoBtn;
     this.profileName = profileName;
+    this.switchMode = switchMode;
   }
 
   @Override
@@ -74,6 +90,18 @@ public final class FragmentSettingBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.Webview;
+      WebView Webview = ViewBindings.findChildViewById(rootView, id);
+      if (Webview == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_present;
+      AppCompatButton btnPresent = ViewBindings.findChildViewById(rootView, id);
+      if (btnPresent == null) {
+        break missingId;
+      }
+
       id = R.id.logout_icon;
       ImageView logoutIcon = ViewBindings.findChildViewById(rootView, id);
       if (logoutIcon == null) {
@@ -104,8 +132,14 @@ public final class FragmentSettingBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentSettingBinding((FrameLayout) rootView, logoutIcon, profileEmail,
-          profileImg, profileInfoBtn, profileName);
+      id = R.id.switch_mode;
+      Switch switchMode = ViewBindings.findChildViewById(rootView, id);
+      if (switchMode == null) {
+        break missingId;
+      }
+
+      return new FragmentSettingBinding((FrameLayout) rootView, Webview, btnPresent, logoutIcon,
+          profileEmail, profileImg, profileInfoBtn, profileName, switchMode);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

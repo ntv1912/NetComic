@@ -2996,6 +2996,7 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable baseline_account_box_24
 drawable baseline_arrow_back_24
+drawable baseline_co_present_24
 drawable baseline_email_24
 drawable baseline_format_list_bulleted_24
 drawable baseline_home_24
@@ -3148,6 +3149,7 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id Webview
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -3247,6 +3249,7 @@ id btn_login
 id btn_logingg
 id btn_logout
 id btn_next
+id btn_present
 id btn_previous
 id btn_register
 id btn_return
@@ -3615,6 +3618,7 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id switch_mode
 id tabMode
 id tab_layout
 id tag_accessibility_actions
@@ -4118,6 +4122,7 @@ style Animation_Material3_SideSheetDialog
 style Animation_Material3_SideSheetDialog_Left
 style Animation_Material3_SideSheetDialog_Right
 style Animation_MaterialComponents_BottomSheetDialog
+style BUTTON
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog
@@ -4449,6 +4454,7 @@ style RtlOverlay_Widget_AppCompat_Search_DropDown_Text
 style RtlOverlay_Widget_AppCompat_SearchView_MagIcon
 style RtlUnderlay_Widget_AppCompat_ActionButton
 style RtlUnderlay_Widget_AppCompat_ActionButton_Overflow
+style SCREEN
 style ShapeAppearance_M3_Comp_Badge_Large_Shape
 style ShapeAppearance_M3_Comp_Badge_Shape
 style ShapeAppearance_M3_Comp_BottomAppBar_Container_Shape
@@ -4511,6 +4517,7 @@ style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Day
 style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Window_Fullscreen
 style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Year
 style ShapeAppearanceOverlay_MaterialComponents_TextInputLayout_FilledBox
+style TEXT
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
 style TextAppearance_AppCompat_Body2

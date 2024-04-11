@@ -4,4 +4,20 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+    <!-- Dark Mode -->
+    <!-- Nền màn hình nếu Dark mode Bật-->
+    <style name="SCREEN">
+        <item name="android:background">#232323</item>
+    </style>
+
+    <!-- Nền chữ nếu Dark mode Bật -->
+    <style name="TEXT">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Màu nút bấm nếu Dark mode Bật -->
+    <style name="BUTTON">
+        <item name="android:background">#B9BABA</item>
+        <item name="android:textColor">#000000</item>
+    </style>
 </resources>
