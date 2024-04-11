@@ -42,12 +42,12 @@ public class SettingFragment extends Fragment {
     private Button btnProfile,btnPresent;
     private TextView profileName,profileEmail;
     WebView webView;
-
-//    Switch switcher;
-//    boolean nightMode;
-//    SharedPreferences sharedPreferences;
-//    SharedPreferences.Editor editor;
-
+//
+    Switch switcher;
+    boolean nightMode;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+//
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -88,37 +88,41 @@ public class SettingFragment extends Fragment {
         imgProfile= view.findViewById(R.id.profile_img);
         btnPresent = view.findViewById(R.id.btn_present);
         webView = view.findViewById(R.id.Webview);
-//        switcher = view.findViewById(R.id.switch_mode);
+        switcher = view.findViewById(R.id.switch_mode);
 //
 //        // Lấy trạng thái từ SharedPreferences
-//        nightMode = sharedPreferences.getBoolean("night", false);
-//
-//        if(nightMode){
-//            switcher.setChecked(true);
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//        } else {
-//            switcher.setChecked(false);
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//        }
-//
-//        switcher.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(nightMode){
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                    editor = sharedPreferences.edit();
-//                    editor.putBoolean("night",false);
-//                    nightMode = false; // Cập nhật nightMode
-//                } else {
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//                    editor = sharedPreferences.edit();
-//                    editor.putBoolean("night", true);
-//                    nightMode = true; // Cập nhật nightMode
-//                }
-//
-//                editor.apply();
-//            }
-//        });
+        sharedPreferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        nightMode = sharedPreferences.getBoolean("night", false);
+
+
+        if(nightMode){
+            switcher.setChecked(true);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            switcher.setChecked(false);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
+        switcher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(nightMode){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("night",false);
+                    nightMode = false; // Cập nhật nightMode
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("night", true);
+                    nightMode = true; // Cập nhật nightMode
+                }
+
+                editor.apply();
+            }
+        });
+
+        //
 //        User dataManager = User.getInstance();
 //        String userName = dataManager.getUserName();
 //        String userEmail = dataManager.getUserEmail();
